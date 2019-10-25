@@ -12,14 +12,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {RouterModule, Routes} from '@angular/router';
 import {SiteComponent} from './site/site.component';
 import {PostsComponent} from './posts/posts.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { PagesComponent } from './pages/pages.component';
+import {NavigationComponent} from './navigation/navigation.component';
+import {PagesComponent} from './pages/pages.component';
+import {TagsComponent} from './tags/tags.component';
+import {StaffComponent} from './staff/staff.component';
 
 
 const appRoutes: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', component: NavigationComponent},
   {path: 'site', component: SiteComponent},
   {path: 'posts', component: PostsComponent},
+  {path: 'pages', component: PagesComponent},
+  {path: 'tags', component: TagsComponent},
+  {path: 'staff', component: StaffComponent},
   // {
   //   path: 'heroes',
   //   component: HeroListComponent,
@@ -40,7 +45,9 @@ const appRoutes: Routes = [
     SiteComponent,
     PostsComponent,
     NavigationComponent,
-    PagesComponent
+    PagesComponent,
+    TagsComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,
