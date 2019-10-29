@@ -1,4 +1,4 @@
-<mat-drawer-container class="example-container">
+<mat-drawer-container class="main">
   <mat-drawer mode="side" class="drawer" opened role="navigation">
     <mat-nav-list>
 
@@ -14,7 +14,7 @@
 
       <h3 mat-subheader>Manage</h3>
 
-      <div style="flex: 1" *ngFor="let item of adminOptions">
+      <div *ngFor="let item of adminOptions" style="flex-direction: row">
         <mat-list-item routerLink="{{item.link}}">
           <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
           <h4 mat-line>{{item.name}}</h4>
@@ -26,7 +26,7 @@
 
     </mat-nav-list>
   </mat-drawer>
-  <mat-drawer-content class="main">
+  <mat-drawer-content style="width: 80%;">
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
