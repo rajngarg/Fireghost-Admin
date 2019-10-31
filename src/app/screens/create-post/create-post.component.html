@@ -1,1 +1,15 @@
-<p>create-post works!</p>
+<div class="main">
+
+  <button mat-icon-button (click)="goBack()" style="margin: 20px;position: absolute;top: 0">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <button mat-button (click)="createPost()" style="margin: 20px;position: absolute;top: 0;right: 0">
+    Publish
+  </button>
+
+  <div style="flex-direction: column;display: flex;margin-top: 200px;margin-bottom: 200px">
+    <input matInput placeholder="Post Title" [(ngModel)]="title" class="postTitle">
+    <textarea matInput [(ngModel)]="body" placeholder="Begin writing your post..." class="postBody"></textarea>
+  </div>
+</div>

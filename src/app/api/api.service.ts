@@ -18,4 +18,7 @@ export class ApiService {
     return this.httpClient.get(Const.baseUrl + Const.pages).toPromise();
   }
 
+  createPost(body: any) {
+    return this.httpClient.post(Const.baseUrl + Const.posts, body).toPromise();
+  }
 }

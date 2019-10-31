@@ -18,7 +18,7 @@
         <mat-list-item routerLink="{{item.link}}">
           <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
           <h4 mat-line>{{item.name}}</h4>
-          <button *ngIf="item.actionIcon" mat-icon-button>
+          <button *ngIf="item.actionIcon" (click)="openCreatePost()" mat-icon-button>
             <mat-icon>{{item.actionIcon}}</mat-icon>
           </button>
         </mat-list-item>
