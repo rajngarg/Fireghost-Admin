@@ -5,6 +5,7 @@ export interface PostModel {
   body: string;
   title: string;
   created: string;
+  isPage: boolean;
   slug: string;
 }
 
@@ -17,10 +18,10 @@ export interface PostModel {
 export class PostsComponent implements OnInit {
 
   constructor(private api: ApiService) {
-    api.getPosts()
+    api.getPosts(false)
       .then((res: Array<PostModel>) => {
         this.setData(res);
-        // console.log(res[0]);
+        console.log(res[0]);
       }).catch(err => {
       console.log(err);
     });
@@ -31,10 +32,6 @@ export class PostsComponent implements OnInit {
   displayedColumns: string[] = ['title', 'created', 'slug'];
 
   setData(res: Array<PostModel>) {
-    const data: Array<PostModel> = new Array<PostModel>();
-    for (let i = 0; i < res.length; i++) {
-      data.push(res[i]);
-    }
     this.dataSource = res;
   }
 

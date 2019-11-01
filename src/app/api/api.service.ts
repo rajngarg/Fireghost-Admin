@@ -10,8 +10,8 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getPosts() {
-    return this.httpClient.get(Const.baseUrl + Const.posts).toPromise();
+  getPosts(isPage: boolean) {
+    return this.httpClient.get(Const.baseUrl + Const.posts + '/?isPage=' + isPage).toPromise();
   }
 
   getPages() {

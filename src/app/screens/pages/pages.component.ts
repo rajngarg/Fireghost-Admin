@@ -10,7 +10,7 @@ import {PostModel} from '../posts/posts.component';
 export class PagesComponent implements OnInit {
 
   constructor(private api: ApiService) {
-    api.getPages()
+    api.getPosts(true)
       .then((res: Array<PostModel>) => {
         this.setData(res);
         // console.log(res[0]);
@@ -24,10 +24,6 @@ export class PagesComponent implements OnInit {
   displayedColumns: string[] = ['title', 'created', 'slug'];
 
   setData(res: Array<PostModel>) {
-    const data: Array<PostModel> = new Array<PostModel>();
-    for (let i = 0; i < res.length; i++) {
-      data.push(res[i]);
-    }
     this.dataSource = res;
   }
 

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {ApiService} from '../../api/api.service';
+import {switchMap} from 'rxjs/operators';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -9,13 +11,25 @@ import {ApiService} from '../../api/api.service';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor(private location: Location, private api: ApiService) {
+  constructor(private location: Location, private api: ApiService, private route: ActivatedRoute) {
   }
 
   title = '';
   body = '';
+  isPage: boolean;
+  titlePlaceholder: string;
+  bodyPlaceholder: string;
 
   ngOnInit() {
+    this.isPage = this.route.snapshot.paramMap.get('type') === 'page';
+    console.log(this.isPage + '');
+    if (this.isPage) {
+      this.titlePlaceholder = 'Page Title';
+      this.bodyPlaceholder = 'Begin writing your page...';
+    } else {
+      this.titlePlaceholder = 'Post Title';
+      this.bodyPlaceholder = 'Begin writing your post...';
+    }
   }
 
   goBack() {
@@ -25,9 +39,9 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     const body = {
       title: this.title,
-      body: this.body
+      body: this.body,
+      isPage: this.isPage,
     };
-    console.log((body));
     this.api.createPost(body).then(res => {
       this.goBack();
     });

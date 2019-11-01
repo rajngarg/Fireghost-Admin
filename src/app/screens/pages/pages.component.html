@@ -1,6 +1,11 @@
 <div style="padding: 20px">
 
   <div class="title">Pages</div>
+  <button mat-raised-button routerLink="/editor/page"
+          style="background: yellowgreen;color: white;margin: 20px;position: absolute;top: 0;right: 0">
+    Add Page
+  </button>
+
   <table mat-table [dataSource]="dataSource" style="width: 100%;" class="mat-elevation-z2">
 
     <ng-container matColumnDef="title">

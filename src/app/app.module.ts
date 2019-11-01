@@ -38,7 +38,7 @@ const appRoutes: Routes = [
       {path: 'staff', component: StaffComponent},
     ]
   },
-  {path: 'write', component: CreatePostComponent},
+  {path: 'editor/:type', component: CreatePostComponent},
 ];
 
 @NgModule({

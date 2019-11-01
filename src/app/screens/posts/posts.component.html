@@ -1,6 +1,14 @@
 <div style="padding: 20px">
 
-  <div class="title">Posts</div>
+  <div class="title">Posts
+
+
+  </div>
+  <button mat-raised-button routerLink="/editor/post"
+          style="background: yellowgreen;color: white;margin: 20px;position: absolute;top: 0;right: 0">
+    New Post
+  </button>
+
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
 
     <ng-container matColumnDef="title">

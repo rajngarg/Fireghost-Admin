@@ -9,7 +9,7 @@
   </button>
 
   <div style="flex-direction: column;display: flex;margin-top: 200px;margin-bottom: 200px">
-    <input matInput placeholder="Post Title" [(ngModel)]="title" class="postTitle">
-    <textarea matInput [(ngModel)]="body" placeholder="Begin writing your post..." class="postBody"></textarea>
+    <input matInput [placeholder]="titlePlaceholder" [(ngModel)]="title" class="postTitle">
+    <textarea matInput [(ngModel)]="body" [placeholder]="bodyPlaceholder" class="postBody"></textarea>
   </div>
 </div>

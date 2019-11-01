@@ -22,6 +22,6 @@ export class NavigationComponent implements OnInit {
   }
 
   openCreatePost() {
-    this.router.navigateByUrl('/write');
+    this.router.navigate(['/editor', 'post']);
   }
 }
