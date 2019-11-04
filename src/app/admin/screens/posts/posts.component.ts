@@ -1,23 +1,31 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../../api/api.service';
-import {PostModel} from '../posts/posts.component';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../config/api.service';
 import timeago from 'epoch-timeago';
 
+export interface PostModel {
+  body: string;
+  title: string;
+  created: string;
+  isPage: boolean;
+  slug: string;
+}
+
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.scss']
 })
-export class PagesComponent implements OnInit {
+
+export class PostsComponent implements OnInit {
 
   constructor(private api: ApiService) {
-    api.getPosts(true)
+    api.getPosts(false)
       .then((res: Array<PostModel>) => {
+        console.log(res);
         this.setData(res);
-        // console.log(res[0]);
       }).catch(err => {
-      console.log(err);
-    });
+        console.log(err);
+      });
   }
 
   dataSource;
@@ -35,3 +43,5 @@ export class PagesComponent implements OnInit {
   }
 
 }
+
+

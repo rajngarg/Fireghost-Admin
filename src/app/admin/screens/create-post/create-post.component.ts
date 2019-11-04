@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
-import {ApiService} from '../../api/api.service';
-import {switchMap} from 'rxjs/operators';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { ApiService } from '../../../config/api.service';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',

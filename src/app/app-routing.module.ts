@@ -1,26 +1,27 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {NavigationComponent} from './navigation/navigation.component';
-import {SiteComponent} from './screens/site/site.component';
-import {PostsComponent} from './screens/posts/posts.component';
-import {PagesComponent} from './screens/pages/pages.component';
-import {TagsComponent} from './screens/tags/tags.component';
-import {StaffComponent} from './screens/staff/staff.component';
-import {CreatePostComponent} from './screens/create-post/create-post.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { NavigationComponent } from './admin/navigation/navigation.component';
+import { SiteComponent } from './admin/screens/site/site.component';
+import { PostsComponent } from './admin/screens/posts/posts.component';
+import { PagesComponent } from './admin/screens/pages/pages.component';
+import { TagsComponent } from './admin/screens/tags/tags.component';
+import { StaffComponent } from './admin/screens/staff/staff.component';
+import { CreatePostComponent } from './admin/screens/create-post/create-post.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: NavigationComponent,
+    path: 'admin',
+    component: NavigationComponent,
     children: [
-      {path: 'site', component: SiteComponent, outlet: 'drawer'},
-      {path: 'posts', component: PostsComponent, outlet: 'drawer'},
-      {path: 'pages', component: PagesComponent, outlet: 'drawer'},
-      {path: 'tags', component: TagsComponent, outlet: 'drawer'},
-      {path: 'staff', component: StaffComponent, outlet: 'drawer'},
+      { path: 'site', component: SiteComponent },
+      { path: 'posts', component: PostsComponent },
+      { path: 'pages', component: PagesComponent },
+      { path: 'tags', component: TagsComponent },
+      { path: 'staff', component: StaffComponent },
     ]
   },
-  {path: 'write', component: CreatePostComponent},
+  { path: 'editor/:type', component: CreatePostComponent },
 ];
 
 @NgModule({
